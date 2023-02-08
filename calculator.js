@@ -21,10 +21,10 @@ app.get("/bmicalculator", (req, res, next) => {
 })
 
 app.post("/bmicalculator", (req, res, next) => {
-    let weight = Number(req.body.weight);
-    let height = Number(req.body.height);
+    let weight = parseFloat(req.body.weight);
+    let height = parseFloat(req.body.height);
     let bmi = (weight / (height ** 2)) * 703;
-    res.send(`Your BMI is: ${bmi}`);
+    res.send(`Your BMI is: ${Math.floor(bmi)}`);
 })
 app.listen(3000, () => {
     console.log("The server is running on port 3000.")
